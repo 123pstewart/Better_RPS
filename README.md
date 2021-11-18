@@ -1,2 +1,2 @@
-# Better_RPS
+# NewRPS
 Created with CodeSandbox

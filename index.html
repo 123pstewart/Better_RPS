@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+ h5 {
+   color: #00F0D7; 
+   font-size: 30px;
+   font-family: Lato;
+   }
+   h4 {
+   color: #406C68; 
+   font-family: Lato;
+   }
+   h2 {
+   color: #406C68; 
+   font-family: Lato;
+   }
+   h3 {
+   color: #048cdb; 
+   font-size: 50px;
+   font-family: Lato;
+   }
+   h8 {
+   color: #08404d; 
+   font-size: 20px;
+   font-family: Lato;
+   }
+ button {
+   color: #094452;
+   background-color: #64bcd1;
+   font-family: Lato
+ }
+ Body{
+   background-color: #c2ede9
+ }
+
+      </style>
+  </head>
+  <body>
+    <div class ="container-fluid bcolor">
+        <div class = "row" align= "center">
+          <div class="col-4"><h5>Player</h5></div>
+          <div class="col-2"><h4>Score:0</h4></div>
+          <div class="col-4"><h5>Computer</h5></div>
+          <div class = "row" align= "center">
+              <div class="col-11"><h2>Rock, Paper, Scissors</h2></div>
+              
+     
+            </div>
+        </div>
+<br>
+<br>
+
+    <button onclick="assignRock()">Rock!</button>
+    <button onclick="assignPaper()">Paper!</button>
+    <button onclick="assignScissors()">Scissors!</button>
+    <br />
+    <div class = "row" align = "center">
+      <div class = "col-5"><p id="Input1"</p></div>
+      <div class = "col-2">
+      <!-- <select id= "myselect" onchange="check()">
+        <option = "0">Rock!</option>
+        <option = "1">Paper!</option>
+        <option = "2">Scissors!</option>
+        <option = "3">Rock!</option>
+        <option = "4">Rock!</option>
+        <option = "5">Paper!</option>
+        <option = "6">Paper!</option>
+        <option = "7">Scissors!</option>
+        <option = "8">Scissors!</option>
+      </select> -->
+    </div>
+    <div class = "col-5"><p id="Input2"></p>
+    </div>
+    </div>
+    <div class ="container-fluid bcolor">
+        <div class = "row" align= "center">
+          <div class="col-4"><h3>Rock</h3></div>
+          <div class="col-8"><h3>Scissors</h3></div>
+ 
+        </div>
+    <div class ="container-fluid bcolor">
+        <div class = "row" align= "center">
+          <div class="col-11"><h8>Click on a button to play against the computer</h8></div>
+ 
+        </div>
+    <script>
+
+                  var userInput;
+                  
+      var score = 0
+      var scoreholder = 0
+      document.getElementById("scoreText").innerHTML = score;
+      
+
+      function assignRock(){
+        userInput = "Rock";
+        DecideWinner();
+      }
+      function assignPaper(){
+        userInput = "Paper";
+        DecideWinner();
+      }
+      function assignScissors(){
+        userInput = "Scissors";
+        DecideWinner();
+      }
+      function DecideWinner() {
+        var computerInput = Math.random();
+        console.log(computerInput);
+
+                  if (computerInput  < 0.34) {
+                    computerInput  = "Rock";
+                    console.log("setting to rock");
+                  } else if (computerInput <= 0.67) {
+                    computerInput  = "Paper";
+                    console.log("setting to paper");
+                  } else {
+                    computerInput  = "Scissors";
+                    console.log("setting to scissors");
+                  }
+
+                  switch(userInput)
+                  {
+                    case "Scissors":
+                    document.getElementById('Input1').innerHTML = "Scissors!";
+                    break;
+                    case "Paper":
+                    document.getElementById('Input1').innerHTML = "Rock!";
+                    break;
+                    case "Rock":
+                    document.getElementById('Input1').innerHTML = "Paper!";
+                    break;
+                  }
+        
+        function finalVerdict() {
+          if (userInput == "Scissors" && computerInput == "Scissors") {
+            console.log("It's a tie");
+            }
+           else if (userInput = "Rock" && computerInput == "Rock") {
+            console.log("It's a tie");
+            }
+            else if (userInput == "Paper" && computerInput == "Paper") {
+            console.log("It's a tie");
+            }
+            else if (userInput = "Rock" && computerInput == "Paper") {
+            console.log("Computer wins!");
+            score = scoreholder - 1;
+            scoreholder = score;
+            document.getElementById("scoreText").innerHTML = score;
+            }
+            else if (userInput == "Rock" && computerInput == "Scissors") {
+            console.log("Player wins!");
+            score = scoreholder + 1;
+            scoreholder = score;
+            document.getElementById("scoreText").innerHTML = score;
+            }
+            else if (userInput = "Paper" && computerInput == "Rock") {
+            console.log("Player wins!");
+            score = scoreholder + 1;
+            scoreholder = score;
+            document.getElementById("scoreText").innerHTML = score;
+            }
+            else if (userInput == "Paper" && computerInput == "Scissors") {
+            console.log("Computer wins!");
+            score = scoreholder - 1;
+            scoreholder = score;
+            document.getElementById("scoreText").innerHTML = score;
+            }
+            else if (userInput = "Scissors" && computerInput == "Rock") {
+            console.log("Computer wins!");
+            score = scoreholder - 1;
+            scoreholder = score;
+            document.getElementById("scoreText").innerHTML = score;
+            }
+            else if (userInput == "Scissors" && computerInput == "Paper") {
+            console.log("Player wins!");
+            score = scoreholder + 1;
+            scoreholder = score;
+            document.getElementById("scoreText").innerHTML = score;
+            }
+            finalVerdict()
+            
+          }
+        } 
+      //   switch (userInput) {
+      //               case 0:
+      //       document.getElementById('Input1').innerHTML = "Rock!";
+      //       document.getElementById('Input2').innerHTML = "Rock!";
+      //                 break;
+      //               case 1:
+      //       document.getElementById('Input1').innerHTML = "Paper!";
+      //       document.getElementById('Input2').innerHTML = "Paper!";
+      //                 break;
+      //               case 2:
+      //       document.getElementById('Input1').innerHTML = "Scissors!";
+      //       document.getElementById('Input2').innerHTML = "Scissors!";
+      //                 break;
+      //               case 3:
+      //       document.getElementById('Input1').innerHTML = "Rock!";
+      //       document.getElementById('Input2').innerHTML = "Paper!";
+      //       // document.getElementById().innerHTML = score - 1;
+      //                 break;
+      //               case 4:
+      //       document.getElementById('Input1').innerHTML = "Rock!";
+      //       document.getElementById('Input2').innerHTML = "Scissors!";
+      //       // document.write(getElementById).innerHTML = score + 1;
+      //                 break;
+      //               case 5:
+      //       document.getElementById('Input1').innerHTML = "Paper!";
+      //       document.getElementById('Input2').innerHTML = "Rock!";
+      //       // document.write(getElementById).innerHTML = score + 1;
+      //                 break;
+      //               case 6:
+      //       document.getElementById('Input1').innerHTML = "Paper!";
+      //       document.getElementById('Input2').innerHTML = "Scissors!";
+      //       // document.write(getElementById).innerHTML = score - 1;
+      //                 break;
+      //                 case 7:
+      //       document.getElementById('Input1').innerHTML = "Scissors!";
+      //       document.getElementById('Input2').innerHTML = "Paper!";
+      //       // document.write(getElementById).innerHTML = score + 1;
+      //                 break;
+      //               case 8:
+      //       document.getElementById('Input1').innerHTML = "Scissors!";
+      //       document.getElementById('Input2').innerHTML = "Rock!";
+      //       // document.write(getElementById).innerHTML = score - 1;
+      //                 break;
+      //   }
+      }
+      // function check(){
+      //   var player = document.getElementById("mySelect").value
+      //   var score;
+      // }
+                  
+
+
+
+
+
+
+                  // switch () {
+                  //   case "rock":
+                  //   if (choice2 === "scissors") {
+                  //       return "rock wins";
+                  //     } else if (choice2 === "paper") {
+                  //       return "paper wins";
+                  //     } else {
+                  //       return "It's a tie";
+                  //     }
+
+                  //     break;
+                  //   case "paper":
+                  //   if (choice2 === "rock") {
+                  //       return "paper wins";
+                  //     } else if (choice2 === "scissors") {
+                  //       return "scissors wins";
+                  //     } else {
+                  //       return "It's a tie";
+                  //     }
+                  //     break;
+                  //   case "scissors":
+                  //   if (choice2 === "rock") {
+                  //         return "rock wins";
+                  //       } else if (choice2 === "paper") {
+                  //       return "scissors wins";
+                  //     } else {
+                  //       return "It's a tie";
+                  //     }
+                  //     break;
+
+
+                  // var compare = function (choice1, choice2) {
+                  //   if (choice1 === choice2) {
+                  //     return "The result is a tie!";
+                  //   }
+                  //   if (choice1 === "rock") {
+                  //     if (choice2 === "scissors") {
+                  //       return "rock wins";
+                  //     } else {
+                  //       return "paper wins";
+                  //     }
+                  //   }
+                  //   if (choice1 === "paper") {
+                  //     if (choice2 === "rock") {
+                  //       return "paper wins";
+                  //     } else {
+                  //       if (choice2 === "scissors") {
+                  //         return "scissors wins";
+                  //       }
+                  //     }
+                  //     if (choice1 === "scissors") {
+                  //       if (choice2 === "rock") {
+                  //         return "rock wins";
+                  //       } else {
+                  //         if (choice2 === "paper") {
+                  //           return "scissors wins"; pwin + 1;
+                  //         }
+                  //       }
+                  //     }
+                  //   }
+                  // };
+                  // console.log("User Choice: " + userChoice);
+                  // console.log("Computer Choice: " + computerChoice);
+                  // compare(userChoice, computerChoice);
+    </script>
+  </body>
+</html>
+
